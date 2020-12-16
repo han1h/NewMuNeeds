@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="berhm">
+	
+		<!-- 전체 게시물 수 -->
+		<select id="count" resultType="int">
+			select count(*) from BBS_T WHERE status = 0
+		</select>
+			
+		<!-- 게시물 화면 -->
+		<select id="list" resultMap="map" parameterType="java.util.Map">
+			select * from (select rownum r_num, a.* from (select * from BBS_T where status = 0 order by b_idx desc)a)where r_num between #{begin} and #{end}
+		</select>
+		
+		<!-- 게시물 작성 -->
+		<insert id="b_add" parameterType="com.data.vo.BbsVO">
+			insert into bbs_t(b_idx,subject,writer,content,write_date,email,address,phone,ip,hit,status) 
+			values (bbs_t_seq.NEXTVAL,#{subject},#{writer},#{content},sysdate,#{email},#{address},#{phone},#{ip},0,0)
+		</insert>
+		
+		<!-- 클릭한 게시물 보기 -->
+		<select id="getBbs" parameterType="java.util.Map" resultType="com.data.vo.BbsVO">
+				select * from bbs_t where b_idx = #{b_idx} AND phone = #{phone}
+		</select>
+		
+		<!-- 조회수 증가 -->
+		<update id="b_hit" parameterType="String">
+				UPDATE bbs_t SET hit = hit+1 WHERE b_idx = #{b_idx}
+		</update>
+		
+		<resultMap type="com.data.vo.BbsVO" id="map">
+			<id column="b_idx" property="b_idx"/>
+			
+		</resultMap>
+	
+		
+</mapper>
