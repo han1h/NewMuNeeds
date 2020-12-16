@@ -23,7 +23,7 @@
 <form method="POST" action="www.naver.com" name="frm_go"></form>
 
 <script src="resources/js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cf2de50f99dbf34e1221539181737f5e"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7c16b4ee74abc32bda67161fdbb5a5a"></script>
 <script>
 
 $(function(){

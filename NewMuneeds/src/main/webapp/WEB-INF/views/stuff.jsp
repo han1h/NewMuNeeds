@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>제품</title>
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/font-awesome.min.css">
 <style type="text/css">
@@ -272,6 +272,15 @@
 	    position: relative;
 	    max-width: 100%;
 	}
+	
+	#shop-grid{
+		height: 100%;
+		padding-bottom: 200px;
+	}
+	
+	#main_footer{
+		width: 100%;
+	}
 </style>
 </head>
 <header>
@@ -324,8 +333,8 @@
 			<div id="w20200730b274bf41fbbb3">
 				<div class="_widget_data">
 					<div class="shop-content widget">
-						<div class="shop-grid">
-							<div class="thump-fluid_item_container">
+						<div class="shop-grid" id="shop-grid">
+							<div class="thump-fluid_item_container" style="position: relative; left: 100px;">
 								<div class="shop-tools clearfix">
 									<div class="inline-blocked float_l" style="position: relative; top: 210px; padding-left: 80px;  font-family: 'Noto Sans Korean','Apple SD Gothic Neo', 'Malgun Gothic','Nanum Gothic', 'Noto Sans','sans-serif'; font-size: 18px;">전체</div>
 									<div class="down-btn" style="display:none;">
@@ -344,7 +353,7 @@
 									<div class="shop-item_shop_item" style="width: 425px; padding: 0px 12.5px; height: 590px; padding-left: 80px;">
 										<div class="item-wrap" style="position: relative;  top: 240px;">
 											<a href="ha1000.inc" class="_fade_link shop-item-thumb hover_img_none">
-												<img src="https://cdn.imweb.me/thumbnail/20200831/56157a857ee60.png" class="_org_img org_img _lazy_img" style="display: inline; width: 45%;">
+												<img src="https://cdn.imweb.me/thumbnail/20200831/56157a857ee60.png" class="_org_img org_img _lazy_img" style="display: inline; width: 100%;">
 												<div class="item-overlay">
 													<div class="item-pay">
 														<div>
@@ -363,7 +372,7 @@
 								<div class="thumb-row m-list-type3 hover_bright thumb-item3 _item_wrap" id="container_w20200730b274bf41fbb3" style="visibility: visible; margin: 0 -12.5px; display: inline-block; position: relative; left: 30px; top: -30px;">
 									<div class="shop-item_shop_item" style="width: 425px; padding: 0px 12.5px; height: 590px; padding-left: 80px;">
 										<div class="item-wrap" style="position: relative;  top: 240px;">
-											<a href="ha1000.inc" class="_fade_link shop-item-thumb hover_img_none">
+											<a href="Goggles.inc" class="_fade_link shop-item-thumb hover_img_none">
 												<img src="resources/images/자연가글플러스.jpg" class="_org_img org_img _lazy_img" style="display: inline;">
 												<div class="item-overlay">
 													<div class="item-pay">
@@ -383,13 +392,13 @@
 								<div class="thumb-row m-list-type3 hover_bright thumb-item3 _item_wrap" id="container_w20200730b274bf41fbb3" style="visibility: visible; margin: 0 -12.5px; display: inline-block; position: relative; left: 30px;">
 									<div class="shop-item_shop_item" style="width: 425px; padding: 0px 12.5px; height: 590px; padding-left: 80px;">
 										<div class="item-wrap" style="position: relative; top: 240px;">
-											<a href="ha1000.inc" class="_fade_link shop-item-thumb hover_img_none">
-												<img src="https://cdn.nxcloud.biz/thumb/20190531/486x365_5cf1225bb8d17.jpg" class="_org_img org_img _lazy_img" style="display: inline;">
+											<a href="caredeaf.inc" class="_fade_link shop-item-thumb hover_img_none">
+												<img src="https://cdn.imweb.me/thumbnail/20200831/15f77a1075f1e.png" class="_org_img org_img _lazy_img" style="display: inline;">
 												<div class="item-overlay">
 													<div class="item-pay">
 														<div>
-															<h2>무선신호기(케어-데프: CARE-DEAF)</h2>
-															<p class="pay no-margin"> 미정</p>
+															<h2>1:N 지니 무선송수신기 관광, 강의,방송기기</h2>
+															<p class="pay no-margin"> 150,000원</p>
 															<div class="prod_icon text-danger icon_default best">BEST</div>
 															<div class="prod_icon text-danger icon_default md">MD</div>
 															<div class="prod_icon text-danger icon_default hot">HOY</div>
@@ -404,10 +413,13 @@
 						</div>
 					</div>
 				</div>
+					<!-- 하단 -->
+				   <div id="main_footer">
+				      <jsp:include page="footer.jsp"/>
+				   </div>
 			</div>
 		</div>
 	</div>
-	
 	
 </body>
 </html>

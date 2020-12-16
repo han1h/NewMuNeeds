@@ -68,9 +68,34 @@ public class golist {
 		return "stuff";
 	}
 	
+	// 자연가글 화면 이동
+	@RequestMapping(value = "Goggles.inc")
+	public String Goggles() {
+		return "Goggles";
+	}
+	
+	// 자연가글 화면 이동
 	@RequestMapping(value = "ha1000.inc")
 	public String ha1000() {
-		return "ha1000";
+		return "h1000";
+	}
+	
+	// 자연가글 화면 이동
+	@RequestMapping(value = "caredeaf.inc")
+	public String caredeaf() {
+		return "caredeaf";
+	}
+	
+	// 관리자 페이지
+	@RequestMapping(value = "/admin.inc")
+	public String goadmin() {
+		return "admin";
+	}
+	
+	// 사용자 페이지 
+	@RequestMapping(value = "/user.inc")
+	public String goUser() {
+		return "user";
 	}
 	
 }

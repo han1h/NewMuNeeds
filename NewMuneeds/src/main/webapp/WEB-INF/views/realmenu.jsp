@@ -79,8 +79,8 @@
 			<!-- 홈 로그인 시 -->
 			<c:if
 				test="${ !empty sessionScope.userVO.nickname and sessionScope.userVO.status eq 0}">
-				<label>H_${userVO.nickname }님 환영합니다</label>
-				<a href="logout">로그아웃</a>
+				<a href="user.inc">H_${userVO.nickname }님 환영합니다</a>
+				<a href="logout.inc">로그아웃</a>
 			</c:if>
 			<!-- 카카오 로그인시 -->
 			<c:if
