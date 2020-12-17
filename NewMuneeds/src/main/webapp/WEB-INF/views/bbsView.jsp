@@ -5,11 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="resources/css/text.css" />
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="resources/css/styles.css"/>
 <title>Insert title here</title>
 <style type="text/css">
+	#bbs{
+		position: relative;
+		top: 100px;
+		height: 700px;
+	}
 </style>
 </head>
 <body>
@@ -51,6 +58,10 @@
 			</table>
 		</form>
 	</div>
+	 <!-- 하단 -->
+   <div id="main_footer">
+      <jsp:include page="footer.jsp"/>
+   </div>
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
    <script src="resources/js/jquery-ui.min.js"></script>
    <script>

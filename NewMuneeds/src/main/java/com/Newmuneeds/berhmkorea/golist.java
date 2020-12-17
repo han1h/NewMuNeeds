@@ -98,4 +98,9 @@ public class golist {
 		return "user";
 	}
 	
+	//popup창 발생
+	@RequestMapping(value = "/popup.inc")
+	public String goPopUP() {
+		return "refund";
+	}
 }

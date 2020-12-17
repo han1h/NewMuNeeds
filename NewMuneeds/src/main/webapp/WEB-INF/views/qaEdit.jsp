@@ -7,11 +7,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/summernote-lite.min.css">
+<title>질문 수정</title>
+<style type="text/css">
+	#bbs{
+		top: 100px;
+	}
+	
+</style>
 <link rel="stylesheet" href="resources/css/styles.css"/>
+<link rel="stylesheet" href="resources/css/text.css" />
+<link rel="stylesheet" href="resources/css/main2.css">
+<link rel="stylesheet" href="resources/css/summernote-lite.min.css">
 </head>
+
 <body>
+<!-- 메뉴바 -->
+        <jsp:include page="realmenu.jsp"/>
 	<div style="width:900px; margin:auto; padding:auto; text-align: center; margin-top: 15px; margin-bottom: 15px;">
 		<h2>게시판 수정</h2>
 	</div>
@@ -61,6 +72,10 @@
 			</tbody>
 		</table>	
 	</div>
+ <!-- 하단 -->
+   <div id="main_footer">
+      <jsp:include page="footer.jsp"/>
+   </div>
 	<script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
    <script type="text/javascript" src="resources/js/summernote-lite.min.js"></script>
    <script type="text/javascript" src="resources/js/lang/summernote-ko-KR.min.js"></script>

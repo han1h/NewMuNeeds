@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/text.css" />
 <link rel="stylesheet" href="resources/css/main.css">
 <link rel="stylesheet" href="resources/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -23,12 +24,19 @@
 </head>
 <body>
 <div id="total">
-		<div>
-				<table>
+	<!-- 메뉴바 -->
+	<div id="h_total">
+      <div class="mc1inlineContent">
+         <jsp:include page="realmenu.jsp"/>
+      </div>
+   </div>
+		<div class="container" style="height: 700px;">
+				<table style="width: 1000px;">
+						<h2 style="height: 50px; margin-top: 20px; position: relative; top: 100px;">시범 입주 문의</h2>
 						<tbody>
 								<tr>
 										<td>
-												<table>
+												<table id="table1" class="table table-hover" style="position: relative; top: 100px;">
 														<thead>
 																<tr>
 																		<th>번호</th>
@@ -41,7 +49,7 @@
 														<tbody>
 																<c:forEach var="vo" items="${list }" varStatus="st">
 																		<tr>
-																			<td style="text-align: center;">
+																			<td style="text-align: center;" bgcolor="#f2f7f5">
 																					<input type="hidden" value="row">
 																					${((nowPage-1)*blockList+st.index)+1}
 																			</td>
@@ -71,7 +79,7 @@
 						</tbody>
 						<tfoot>
 									<tr>
-										<td colspan="5">
+										<td colspan="5" style="position: relative; top: 100px;">
 												<div>
 														${pageCode }
 												</div>
@@ -87,6 +95,10 @@
 			<input type="text" id="view_phone" name="phone"/>
 			<input type="button" value="확인" id="view_ok"/>
 		</div>
+		<!-- 하단 -->
+	   <div id="main_footer">
+	      <jsp:include page="footer.jsp"/>
+	   </div>
 </div>
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script src="resources/js/jquery-ui.min.js"></script>

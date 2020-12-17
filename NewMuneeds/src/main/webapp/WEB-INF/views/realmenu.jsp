@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="resources/css/main.css">
 <style type="text/css">
 	#navPanel{
 		display: none;
@@ -105,7 +105,33 @@
 	<a onclick="show()" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 	<div id="navPanel" class="visible">
 		<a href="gonoinjung.inc" style="-webkit-tap-highlight-color:rgba(0,0,0,0);">요양원</a>
-		<a onclick="shut()" class="close" style="-webkit-tap-highlight-color:rgba(0,0,0,0);"></a>
+		<a href="gonoinjung.inc" style="margin-top: 5px;">실버타운/요양원</a>
+				<a href="notice.inc" style="margin-top: 5px;">게시판</a>
+				<a href="qanotice.inc" style="margin-top: 5px;">Q&A</a>
+				<a href="shop.inc" style="margin-top: 5px;">shop</a>
+				<!-- 로그인 전 -->
+			<c:if test="${empty sessionScope.userVO.nickname}">
+				<a href="gologin.inc">로그인</a>&nbsp; <a href="goReg.inc">회원가입</a>
+			</c:if>
+			<!-- 홈 로그인 시 -->
+			<c:if
+				test="${ !empty sessionScope.userVO.nickname and sessionScope.userVO.status eq 0}">
+				<a href="user.inc">H_${userVO.nickname }님 환영합니다</a>
+				<a href="logout.inc">로그아웃</a>
+			</c:if>
+			<!-- 카카오 로그인시 -->
+			<c:if
+				test="${ !empty sessionScope.userVO.nickname and sessionScope.userVO.status eq 2}">
+				<label>K_${userVO.nickname }님 환영합니다</label>
+				<a href="kakaologout.inc">로그아웃</a>
+			</c:if>
+
+			<!-- 관리자 로그인 시 -->
+			<c:if
+				test="${ !empty sessionScope.userVO.nickname and sessionScope.userVO.status eq 9}">
+				<a href="admin.inc" style="color: green;">M_${userVO.nickname }님 환영합니다</a>
+				<a  href="logout.inc" >로그아웃</a>
+			</c:if>
 	</div>
 	<script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script src="resources/js/jquery-ui.min.js"></script>

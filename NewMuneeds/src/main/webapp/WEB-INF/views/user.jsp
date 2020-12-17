@@ -47,7 +47,7 @@
 		</div>
 	</div>
 	<form action="form1" method="post">
-		
+		<input type="hidden">
 	</form>
 	<!-- 하단 -->
    <div id="main_footer">

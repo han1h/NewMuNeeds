@@ -11,33 +11,44 @@
 <link rel="stylesheet" href="resources/css/summernote-lite.min.css">
 <link rel="stylesheet" href="resources/css/jquery-ui.min.css" />
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/text.css" />
+<link rel="stylesheet" href="resources/css/font-awesome.min.css">
 <link rel="stylesheet" href="resources/css/styles.css"/>
 <style type="text/css">
    .content{
       text-align: left;
    }
+   #bbs{
+	   	position: relative;
+	   	top: 100px;
+   }
+   #main_foote{
+   		position: relative;
+   		top: 100px;
+   }
 </style>
 </head>
 <body>
-   <div>
+<!-- 메뉴바 -->
+<div id="h_total">
+     <div class="mc1inlineContent">
+        <jsp:include page="realmenu.jsp"/>
+   </div>
+</div>
+   <div id="bbs">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
      <tr>
-       <td valign="top">
+       <td valign="top" style="padding-bottom: 150px;">
          <table border="0" cellspacing="0" cellpadding="0"  style="width:800px; margin: auto;">
            <tr>
              <td align="center" height="10"></td>
            </tr>
            <tr>
-             <td align="center"><u><b>QA</b></u></td>
+             <td align="center" style="text-decoration: none;"><u><b>질문 작성</b></u></td>
            </tr>
            <tr>
              <td align="center" valign="top">
-             <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                 <tr>
-                   <td>&nbsp;</td>
-                 </tr>
-               
-              </table>
+            
                <form action="qaAdd.inc?nowPage=${q_vo.nowPage }" method="post" enctype="multipart/form-data" name="frm" style="border: 1px solid gray;">
                <input type="hidden" name="nowPage" value="${nowPage }"/>
                <input type="hidden" name="content" id="content"/>
@@ -97,6 +108,10 @@
        </td>
      </tr>
    </table>
+   </div>
+    <!-- 하단 -->
+   <div id="main_footer">
+      <jsp:include page="footer.jsp"/>
    </div>
     <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
    <script type="text/javascript" src="resources/js/summernote-lite.min.js"></script>

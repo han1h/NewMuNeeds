@@ -435,7 +435,7 @@
 				<div id="e_inside_title">
 					<div id="e_payment">
 						<div>
-							<a href="payment.inc" style="float: right;" class="e_name" id="e_atag" >
+							<a onclick="popupOpen()" style="float: right;" class="e_name" id="e_atag" >
 								결제하기
 							</a>
 						</div>
@@ -532,6 +532,14 @@
    			
    			location.href= "home.inc";
    			
+   		}
+   		
+   		function popupOpen(){
+   			
+   			var popUrl = "/berhmkorea/refund";
+   			var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";
+
+   			window.open(popUrl,"",popOption);
    		}
    	</script>
 </body>

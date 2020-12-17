@@ -8,7 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/styles.css"/>
+<link rel="stylesheet" href="resources/css/text.css" />
+<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <link rel="stylesheet" href="resources/css/styles.css"/>
 
 <style type="text/css">
@@ -18,7 +21,13 @@
 </style>
 </head>
 <body>
-<div id="qa" class="container">
+<!-- 메뉴바 -->
+<div id="h_total">
+  <div class="mc1inlineContent">
+     <jsp:include page="realmenu.jsp"/>
+   </div>
+</div>
+<div id="qa" class="container" style="position: relative; top: 100px; height: 700px;">
       <form method="post">
          <div id="notice">
             <div id="heights"></div>
@@ -75,6 +84,10 @@
                <input type="text" id="view_nowPage" name="qnowPage" value="${qvo.nowPage }">
                <input type="hidden" name="b_idx" value="${qvo.b_idx }">
          </form>
+   </div>
+   <!-- 하단 -->
+   <div id="main_footer">
+      <jsp:include page="footer.jsp"/>
    </div>
     <script src="resources/js/jquery-3.4.1.min.js"></script>
 	<script src="resources/js/jquery-ui.min.js"></script>

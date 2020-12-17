@@ -176,7 +176,6 @@
 	    cursor: pointer;
 	}
 	.shop-item {
-	    text-align: center;
 	    float: left;
 	}
 	Style Attribute {
@@ -281,6 +280,61 @@
 	#main_footer{
 		width: 100%;
 	}
+	#text_w20201103bae12e4678769 {
+	    border-radius: 0px;
+	    border: 0px none #000;
+	    min-height: 0px;
+	    line-height: inherit;
+	}
+	.admin #text_w20201103bae12e4678769, #text_w20201103bae12e4678769 .text-table {
+	    min-height: 0px;
+	    word-break: normal;
+	    word-wrap: break-word;
+	}
+	div.widget_text_wrap > div {
+	    width: 100%;
+	}
+	body{
+		height: 100%;
+	}
+	#main_footer{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 70px;
+	}
+	
+	@media (max-width:946px) {
+		.inside{
+			height: 1500px;
+		}
+	}
+	
+	@media (min-width: 945px) {
+		.inside{
+			height: 1470px;
+		}
+	}
+	@media (min-width: 1040px) {
+			.inside{
+				height: 1000px;
+			}
+	}
+	@media (max-width: 1218px) {
+			.inside{
+				height: 1500px;
+			}
+	}
+	@media (min-width: 825px) {
+		.inside{
+			height: 1700px;
+		}
+	}
+	@media (max-width: 822px) {
+		.inside{
+			height: 1900px;
+		}
+	}
 </style>
 </head>
 <header>
@@ -291,7 +345,7 @@
          <jsp:include page="realmenu.jsp"/>
       </div>
    </div>
-	<div class="inside">
+	<div class="inside" style="height: 900px;">
 		<div class="doz_row">
 			<div class="col-dz col-dz-12">
 				<div id="w2020090219200f14be7e0">
@@ -303,38 +357,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="doz_row">
-			<div class="col-dz col-dz-12">
-				<div id="w20201103bae12e4678769">
-					<div class="_widget_data">
-						<div class="widget _text_wrap widget_text_wrap fi-view default_padding" id="text_w20201103bae12e4678769" style="position: relative; left: 500px; top: 125px;">
-							<div class="text-table">
-								<div>
-									<p style="text-align: center">
-										<span style="font-size: 16px; color: rgb(68,65,65);">
-											평일 오후 2시 이전 주문하신 물건은 당일 출고 됩니다.
-										</span>
-									</p>
-									<p style="text-align: center">
-										<span style="font-size: 16px; color: rgb(68,65,65);">
-											(택배사 사정에 따라 평균 1~2일 소요, 주말 제외)
-										</span>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="doz_row">
 		<div class="col-dz col-dz-12">
 			<div id="w20200730b274bf41fbbb3">
 				<div class="_widget_data">
 					<div class="shop-content widget">
 						<div class="shop-grid" id="shop-grid">
-							<div class="thump-fluid_item_container" style="position: relative; left: 100px;">
+							<div class="thump-fluid_item_container" style="position: relative;">
 								<div class="shop-tools clearfix">
 									<div class="inline-blocked float_l" style="position: relative; top: 210px; padding-left: 80px;  font-family: 'Noto Sans Korean','Apple SD Gothic Neo', 'Malgun Gothic','Nanum Gothic', 'Noto Sans','sans-serif'; font-size: 18px;">전체</div>
 									<div class="down-btn" style="display:none;">
@@ -369,7 +398,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="thumb-row m-list-type3 hover_bright thumb-item3 _item_wrap" id="container_w20200730b274bf41fbb3" style="visibility: visible; margin: 0 -12.5px; display: inline-block; position: relative; left: 30px; top: -30px;">
+								<div class="thumb-row m-list-type3 hover_bright thumb-item3 _item_wrap" id="container_w20200730b274bf41fbb3" style="visibility: visible; margin: 0 -12.5px; display: inline-block; position: relative; left: 30px;  -30px; wid">
 									<div class="shop-item_shop_item" style="width: 425px; padding: 0px 12.5px; height: 590px; padding-left: 80px;">
 										<div class="item-wrap" style="position: relative;  top: 240px;">
 											<a href="Goggles.inc" class="_fade_link shop-item-thumb hover_img_none">
@@ -413,13 +442,13 @@
 						</div>
 					</div>
 				</div>
-					<!-- 하단 -->
-				   <div id="main_footer">
-				      <jsp:include page="footer.jsp"/>
-				   </div>
 			</div>
 		</div>
+
 	</div>
-	
+	<!-- 하단 -->
+   <div id="main_footer">
+      <jsp:include page="footer.jsp"/>
+   </div>
 </body>
 </html>
