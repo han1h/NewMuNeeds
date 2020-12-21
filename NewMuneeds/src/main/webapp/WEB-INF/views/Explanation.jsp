@@ -9,6 +9,13 @@
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css'>
 <link rel='stylesheet prefetch' href="resources/css/fsghp.css">
+<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="resources/css/user.css">
+<link rel="stylesheet" href="resources/css/lib.css">
+<link rel="stylesheet" href="resources/css/mobile_pagination.css">
+<link rel="stylesheet" href="resources/css/buttons.css">
+<link rel="stylesheet" href="resources/css/buttons.css">
 
  <link rel="stylesheet" href="resources/css/style.css">
 <style type="text/css">
@@ -536,8 +543,8 @@
    		
    		function popupOpen(){
    			
-   			var popUrl = "/berhmkorea/refund";
-   			var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";
+   			var popUrl = "//localhost:9090/berhmkorea/popup.inc";
+   			var popOption = "width=600, height=600, resizable=no, scrollbars=no, status=no;";
 
    			window.open(popUrl,"",popOption);
    		}

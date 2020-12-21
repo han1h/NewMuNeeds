@@ -131,6 +131,7 @@ public class UserController {
 		    return "home";
 		}
 
+	 // 카카오톡 로그 아웃
 	 @RequestMapping(value = "/kakaologout.inc")
 	 public String Logout(HttpSession session) {
 	        //kakao restapi 객체 선언
@@ -142,8 +143,61 @@ public class UserController {
 	        
 	        session.setAttribute("node", node.get("id"));
 	        
+	        
+	        
 	        return "redirect:/home.inc";
 	    }    
 
+	 // 유저 정보 보러 들어가기
+	 @RequestMapping(value = "/gouser.inc",method = RequestMethod.POST)
+	 public ModelAndView go_user(String pw,String id)throws Exception {
+		 UserVO uvo = u_dao.user_view(pw,id);
+		 
+		 ModelAndView mv = new ModelAndView();
+		 mv.addObject("uvo", uvo);
+		 
+		 mv.setViewName("gouserview");
+		 
+		 return mv;
+		 
+	 }
+	 
+	 // 유저정보 수정
+	 @RequestMapping(value = "/userEdit.inc",method = RequestMethod.POST)
+	 public ModelAndView userqa(String pwd, String id)throws Exception{
+		 
+		 ModelAndView mv = new ModelAndView();
+		 
+		 Map<String, String> map = new HashMap<String, String>();
+		 map.put("id", id);
+		 map.put("pwd", pwd);
+		 
+		 boolean value = u_dao.user_edit(pwd,id);
+		 
+		 if(value) {
+			 mv.setViewName("redirect:/user.inc");
+		 }
+		 
+		 return mv;
+	 }
+	 
+	 //유저정보 삭제
+	 @RequestMapping(value = "/userDelete.inc",method = RequestMethod.POST)
+	 public ModelAndView userdel(String pw,String id,HttpSession session)throws Exception{
+		 logout(session);
+		 ModelAndView mv = new ModelAndView();
+		 
+		 Map<String, String> map = new HashMap<String, String>();
+		 map.put("id", id);
+		 map.put("pw", pw);
+		 
+		 boolean value = u_dao.user_del(pw, id);
+		 
+		 if(value) {
+			 mv.setViewName("redirect:home.inc");
+		 }
+		 
+		 return mv;
+	 }
 
 }

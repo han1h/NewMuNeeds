@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -131,9 +132,27 @@ body {
                      type : "post"
                   }).done(function(data) {
                      if (data.chk) {
-                        location.href = "home.inc";
+                    	 if( ${ sessionScope.userVO.status eq 1} ){
+                    		 alert("저장된 정보가 없습니다.");
+                    		 $("#id").val("");
+                    		 $("#pwd").val("");
+                    		 $("#id").val("");
+                    		 $("#pwd").focus();
+                    	 }else{
+                       		location.href = "home.inc";
+                    	 }	
                      } else {
-                        alert("정보가 다릅니다.");
+                    	 if( ${sessionScope.userVO.status eq 1} ){
+                    		 alert("저장된 정보가 아예 없습니다.");
+                    		 $("#id").val("");
+                    		 $("#pwd").val("");
+                    		 $("#id").val("");
+                    		 $("#pwd").focus();
+                    	 }else{
+                    		 alert("정보가 다릅니다.");
+                         	$("#pwd").val("");
+                         	$("#pwd").focus();
+                    	 }	
                      }
                   }).fail(function(err) {
                      console.log(err);
@@ -160,20 +179,37 @@ body {
                         return;
                      }
                      $.ajax({
-                        url : "userdo.inc",
-                        data : login_info,
-                        dataType : "json",
-                        type : "post"
-                     }).done(function(data) {
-                        if (data.chk) {
-                           location.href = "home.inc";
-                        } else {
-                           alert("정보가 다릅니다.");
-                           $("#pwd").val("");
-                        }
-                     }).fail(function(err) {
-                        console.log(err);
-                     });
+                         url : "userdo.inc",
+                         data : login_info,
+                         dataType : "json",
+                         type : "post"
+                      }).done(function(data) {
+                         if (data.chk) {
+                        	 if( ${ sessionScope.userVO.status eq 1} ){
+                        		 alert("저장된 정보가 없습니다.");
+                        		 $("#id").val("");
+                        		 $("#pwd").val("");
+                        		 $("#id").val("");
+                        		 $("#pwd").focus();
+                        	 }else{
+                           		location.href = "home.inc";
+                        	 }	
+                         } else {
+                        	 if( ${sessionScope.userVO.status eq 1} ){
+                        		 alert("저장된 정보가 아예 없습니다.");
+                        		 $("#id").val("");
+                        		 $("#pwd").val("");
+                        		 $("#id").val("");
+                        		 $("#pwd").focus();
+                        	 }else{
+                            	alert("정보가 다릅니다.");
+                            	$("#pwd").val("");
+                            	$("#pwd").focus();
+                        	 }	
+                         }
+                      }).fail(function(err) {
+                         console.log(err);
+                      });
         	 }
          });
          

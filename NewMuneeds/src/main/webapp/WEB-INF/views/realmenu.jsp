@@ -9,7 +9,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/main.css">
 <style type="text/css">
 	#navPanel{
 		display: none;
@@ -73,7 +72,7 @@
 				<a href="qanotice.inc" style="margin-top: 5px;">Q&A</a>
 				<a href="shop.inc" style="margin-top: 5px;">shop</a>
 				<!-- 로그인 전 -->
-			<c:if test="${empty sessionScope.userVO.nickname}">
+			<c:if test="${empty sessionScope.userVO.nickname or sessionScope.userVO.status eq 1 }">
 				<a href="gologin.inc">로그인</a>&nbsp; <a href="goReg.inc">회원가입</a>
 			</c:if>
 			<!-- 홈 로그인 시 -->
@@ -85,7 +84,7 @@
 			<!-- 카카오 로그인시 -->
 			<c:if
 				test="${ !empty sessionScope.userVO.nickname and sessionScope.userVO.status eq 2}">
-				<label>K_${userVO.nickname }님 환영합니다</label>
+				<label><a href="user.inc">K_${userVO.nickname }님 환영합니다</a></label>
 				<a href="kakaologout.inc">로그아웃</a>
 			</c:if>
 

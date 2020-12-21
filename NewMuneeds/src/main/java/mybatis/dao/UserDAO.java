@@ -14,14 +14,14 @@ public class UserDAO {
 	@Autowired
 	private SqlSessionTemplate ss;
 	
-	// ¼Ò¼È ·Î±×ÀÎ½Ã È¸¿ø°¡ÀÔÀ» Çß´ÂÁö ÆÇ´Ü ºÎºĞ 
+	// ï¿½Ò¼ï¿½ ï¿½Î±ï¿½ï¿½Î½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½Îºï¿½ 
 		public boolean search(UserVO vo) {
-			//½Å±Ô°¡ÀÔÀÚ¶ó¸é true 
-			//±âÁ¸¿¡ °¡ÀÔµÇ¾îÀÖ´Ù¸é false
+			//ï¿½Å±Ô°ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ true 
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ï¿½Ö´Ù¸ï¿½ false
 			boolean chk = true;
 			
 			int cnt = ss.selectOne("user.search_id", vo.getId());
-			//id¸¦ ÁÖ¾úÀ»¶§ cnt ÀÇ °ªÀÌ ¿Ã¶ó°¡¸é 
+			//idï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ cnt ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¶ó°¡¸ï¿½ 
 			if(cnt > 0) {
 				chk = false;
 			}			
@@ -33,12 +33,12 @@ public class UserDAO {
 			return chk; 
 		}
 	
-	// È¸¿ø°¡ÀÔÀ» ÇÏ´Â °Í
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½
 	public void insertId(UserVO uvo) {
 		int cnt2 = ss.insert("user.h_add", uvo);
 	}
 	
-	// È¸¿ø°¡ÀÔ½Ã ¾ÆÀÌµğ Áßº¹ È®ÀÎ
+	// È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ßºï¿½ È®ï¿½ï¿½
 	public boolean id_okok(String id) {
 		boolean chk = false;
 		
@@ -52,9 +52,9 @@ public class UserDAO {
 		return chk;
 	}
 	
-	// ·Î±×ÀÎ
+	// ï¿½Î±ï¿½ï¿½ï¿½
 	public boolean log(String id, String pw) {
-		boolean chk = false; // id , pw µÑ´Ù ¸ÂÀ»‹š true ÁÖ±â¿ë
+		boolean chk = false; // id , pw ï¿½Ñ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ true ï¿½Ö±ï¿½ï¿½
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("pw", pw);
@@ -67,7 +67,7 @@ public class UserDAO {
 		return chk;
 	}
 	
-	//È¸¿ø Á¤º¸ Ã£±â 
+	//È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ 
 	public UserVO search_user(String id,String pw) {
 		UserVO[] ar = null;
 		Map<String, String> map = new HashMap<String, String>();
@@ -77,6 +77,52 @@ public class UserDAO {
 		UserVO uvo = ss.selectOne("user.id_login", map);
 		
 		return uvo;
+	}
+	
+	
+	// íšŒì›ì •ë³´ ë³´ê¸°
+	public UserVO user_view(String pw,String id) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("pw", pw);
+		map.put("id", id);
+		
+		UserVO vo = ss.selectOne("user.user_info", map);
+		
+		return vo;
+	}
+	
+	//íšŒì› ì •ë³´ ìˆ˜ì •
+	public boolean user_edit(String pwd,String id) {
+		boolean chk = false;
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("pwd", pwd);
+		map.put("id", id);
+		
+		int cnt = ss.update("user.user_edit" , map);
+		
+		if(cnt>0) {
+			chk = true;
+		}
+		return chk;
+	}
+	
+	// íšŒì› ì •ë³´ ì‚­ì œ
+	public boolean user_del(String pw,String id) {
+		boolean chk = false;
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("pw", pw);
+		map.put("id", id);
+		
+		int cnt = ss.update("user.user_del", map);
+		
+		if(cnt>0) {
+			chk = true;
+		}
+		
+		return chk;
 	}
 	
 }

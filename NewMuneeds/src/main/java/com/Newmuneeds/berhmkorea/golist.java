@@ -103,4 +103,22 @@ public class golist {
 	public String goPopUP() {
 		return "refund";
 	}
+	
+	// 회원정보 수정화면 가기전 비밀번호 입력하러 가기
+	@RequestMapping(value = "/useredit.inc")
+	public String usereditgo() {
+		return "usereditgo";
+	}
+	
+	// 비밀번호 popup창 발생
+	@RequestMapping(value = "/pwpopup.inc")
+	public String gopwPopUP() {
+		return "userEdit";
+	}
+	
+	// 회원탈퇴 화면 전환
+	@RequestMapping(value = "/userdel.inc")
+	public String userdel() {
+		return "userDel";
+	}
 }

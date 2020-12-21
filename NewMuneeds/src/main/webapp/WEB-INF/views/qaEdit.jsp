@@ -10,20 +10,21 @@
 <title>질문 수정</title>
 <style type="text/css">
 	#bbs{
-		top: 100px;
+		position: relative;
+		top: 120px;
+		height: 800px;
 	}
 	
 </style>
-<link rel="stylesheet" href="resources/css/styles.css"/>
-<link rel="stylesheet" href="resources/css/text.css" />
-<link rel="stylesheet" href="resources/css/main2.css">
 <link rel="stylesheet" href="resources/css/summernote-lite.min.css">
+<link rel="stylesheet" href="resources/css/main2.css" />
+<link rel="stylesheet" href="resources/css/styles.css" />
 </head>
 
 <body>
 <!-- 메뉴바 -->
         <jsp:include page="realmenu.jsp"/>
-	<div style="width:900px; margin:auto; padding:auto; text-align: center; margin-top: 15px; margin-bottom: 15px;">
+	<div style="width:900px; margin:auto; padding:auto; text-align: center; margin-top: 15px; margin-bottom: 15px; position: relative; top: 100px;">
 		<h2>게시판 수정</h2>
 	</div>
 	<div id="bbs">
@@ -32,20 +33,20 @@
 			<tbody>
 				<tr>
 					<th style="background-color:#669AB3;"><label for="subject">제목:</label></th>
-					<td><input type="text" id="subject" name="subject" size="45" value="${q_vo.subject}"/>  </td>
+					<td bgcolor="#F2F7F9" align="left" class="content"><input type="text" id="subject" name="subject" size="45" value="${q_vo.subject}"/>  </td>
 				</tr>
 				<tr>
 					<th style="background-color:#669AB3;"><label for="writer">이름:</label></th>
-					<td><input type="text" id="writer" name="writer" size="12" value="${ q_vo.writer }"/> </td>
+					<td bgcolor="#F2F7F9" align="left" class="content"><input type="text" id="writer" name="writer" size="12" value="${ q_vo.writer }"/> </td>
 				</tr>
 				<tr>
 					<th style="background-color:#669AB3;"><label for="file">첨부파일:</label></th>
-					<td><input type="file" id="file" name="file"/>(${ q_vo.file_name })</td>
+					<td bgcolor="#F2F7F9" align="left" class="content"><input type="file" id="file" name="file"/>(${ q_vo.file_name })</td>
 				</tr>
 
 				<tr>
 					<th style="background-color:#669AB3;"><label for="pwd">비밀번호:</label></th>
-					<td><input type="password" id="pwd" name="pwd" size="12"/></td>
+					<td bgcolor="#F2F7F9" align="left" class="content"><input type="password" id="pwd" name="pwd" size="12"/></td>
 				</tr>
 
 			</tbody>
@@ -58,7 +59,7 @@
 		<table style="margin: auto; width:740px;">
 			<tbody>
 				<tr>
-					<th style="width:144px; background-color:#669AB3;"><label for="content">내용:</label></th>
+					<th style="width:115px; background-color:#669AB3;"><label for="content">내용:</label></th>
 					<td><textarea name="content" cols="50" rows="8" id="content" >${ q_vo.content }</textarea>
 					</td>
 				</tr>
@@ -107,7 +108,7 @@
 			
 			$("#content").summernote({
 				height: 300,
-				width: 580,
+				width: 600,
 				lang: "ko-KR",
 				callbacks:{
 					onImageUpload: function(files, editor){
@@ -153,7 +154,7 @@
 				if(i > 1)
 					break;
 				
-				if(${q_vo.pwd} == $("#pwd").val() ){
+				if(${ q_vo.pwd } == $("#pwd").val() ){
 				
 				if(edit_frm.elements[i].value == ""){
 					

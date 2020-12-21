@@ -9,11 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>QA 작성</title>
 <link rel="stylesheet" href="resources/css/summernote-lite.min.css">
-<link rel="stylesheet" href="resources/css/jquery-ui.min.css" />
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/text.css" />
-<link rel="stylesheet" href="resources/css/font-awesome.min.css">
-<link rel="stylesheet" href="resources/css/styles.css"/>
+<link rel="stylesheet" href="resources/css/main2.css" />
+<link rel="stylesheet" href="resources/css/styles.css" />
 <style type="text/css">
    .content{
       text-align: left;
@@ -30,11 +27,7 @@
 </head>
 <body>
 <!-- 메뉴바 -->
-<div id="h_total">
-     <div class="mc1inlineContent">
         <jsp:include page="realmenu.jsp"/>
-   </div>
-</div>
    <div id="bbs">
    <table width="100%" border="0" cellspacing="0" cellpadding="0">
      <tr>
@@ -116,6 +109,7 @@
     <script type="text/javascript" src="resources/js/jquery-3.4.1.min.js"></script>
    <script type="text/javascript" src="resources/js/summernote-lite.min.js"></script>
    <script type="text/javascript" src="resources/js/lang/summernote-ko-KR.min.js"></script>
+   <script type="text/javascript" src="resources/js/lang/bootstrap.bundle.min.js"></script>
 	<script src="resources/js/jquery-ui.min.js"></script>
    <script type="text/javascript">
    $(function(){

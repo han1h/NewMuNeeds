@@ -44,43 +44,43 @@ public class QaController {
 	@Autowired
 	private HttpSession session;
 	
-	//ÆäÀÌÂ¡ ±â¹ýÀ» À§ÇÑ »ó¼ö µé
-	public final int q_BLOCK_LIST = 10;  // ÇÑÆäÀÌÁö´ç º¸¿©Áú °Ô½Ã¹°
-	public final int q_BLOCK_PAGE = 5; // ÇÑºí·°´ç º¸¿©Áú ÆäÀÌÁö ¼ö
+	//ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½
+	public final int q_BLOCK_LIST = 10;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½
+	public final int q_BLOCK_PAGE = 5; // ï¿½Ñºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 	
-	// ¸â¹ö º¯¼öµé
+	// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int nowPage;
 	int q_rowTotal;
 	String qpageCode;
 	
-	// qa ¸®½ºÆ® È­¸éÀ¸·Î ÀüÈ¯ÇÏ±â
+	// qa ï¿½ï¿½ï¿½ï¿½Æ® È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï±ï¿½
    @RequestMapping("/qanotice.inc")
    public ModelAndView handleRequest(String nowPage) throws Exception {
-      // »ç¿ëÀÚ°¡ ºê¶ó¿ìÀú¿¡¼­ notice.inc¶ó°í ¿äÃ» ÇßÀ» ¶§
-      // ¼öÇàÇÏ´Â °÷
+      // ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ notice.incï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+      // ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½
 
-      // ÇöÀç ÆäÀÌÁö °ªÀ» ¹Þ´Â´Ù.
+      // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´Â´ï¿½.
       if(nowPage == null)
          this.nowPage = 1;
       else
          this.nowPage = Integer.parseInt(nowPage);
 
 
-      // ÃÑ °Ô½Ã¹°ÀÇ ¼ö¸¦ MyBatisÈ¯°æÀ» ÅëÇØ ¾ò´Â´Ù.
+      // ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ MyBatisÈ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â´ï¿½.
       q_rowTotal =q_dao.getQaTotalCount();
 
-      // ÆäÀÌÂ¡ Ã³¸®¸¦ À§ÇÑ °´Ã¼ »ý¼º
+      // ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
       q_Paging qpage = new q_Paging(this.nowPage, q_BLOCK_LIST, q_BLOCK_PAGE, q_rowTotal);
-      //jsp¿¡¼­ Ç¥ÇöÇÒ ÆäÀÌÂ¡ ±â¹ýÀÇ ÄÚµå¸¦ pageCode¿¡´Ù°¡ ÀúÀå
+      //jspï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµå¸¦ pageCodeï¿½ï¿½ï¿½Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½
       qpageCode = qpage.getSb().toString();
 
-      //JSP¿¡¼­ Ç¥ÇöÇÒ °Ô½Ã¹°µéÀ» ¸ñ·ÏÀ¸·Î ¹Þ±â À§ÇØ
-      // begin°ú end°¡ ÇÊ¿äÇÏ´Ù.
+      //JSPï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½ ï¿½ï¿½ï¿½ï¿½
+      // beginï¿½ï¿½ endï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Ï´ï¿½.
       int q_begin = qpage.getBegin();
       int q_end = qpage.getEnd();
 
-      // MyBatisÈ¯°æÀ» ÅëÇØ begin°ú end¸¦ Àü´ÞÇÏ¸é¼­ 
-      // Ç¥ÇöÇÒ °Ô½Ã¹°µéÀ» ¹Þ´Â´Ù.
+      // MyBatisÈ¯ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ beginï¿½ï¿½ endï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸é¼­ 
+      // Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ´Â´ï¿½.
       QaVO[] ar = q_dao.q_getList(q_begin, q_end);
 
       ModelAndView mv = new ModelAndView();
@@ -88,7 +88,7 @@ public class QaController {
       mv.addObject("q_list", ar);
       mv.addObject("q_nowPage", qpage.getNowPage());
       mv.addObject("q_blockList", q_BLOCK_LIST);
-      mv.addObject("q_rowTotal", q_rowTotal); // °Ô½Ã¹° ¾Õ¿¡ ¹øÈ£Âï´Â¿ë
+      mv.addObject("q_rowTotal", q_rowTotal); // ï¿½Ô½Ã¹ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½È£ï¿½ï¿½Â¿ï¿½
 
       session.setAttribute("q_list", ar);
       
@@ -97,7 +97,7 @@ public class QaController {
       return mv;
    }
 	
-	//qa ¾²±â ÆäÀÌÁö ÀÌµ¿
+	//qa ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 	@RequestMapping("/qawrite.inc")
 	public ModelAndView q_add(String nowPage) {
 		ModelAndView mv = new ModelAndView();
@@ -108,7 +108,7 @@ public class QaController {
 		return mv;
 	}
 	
-	//¿¡µðÅÍ¿¡ ÀÌ¹ÌÁö Ç¥Çö ºÎºÐ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½Îºï¿½
 	   @RequestMapping(value = "/saveImage.inc", method = RequestMethod.POST)
 	   @ResponseBody
 	   public Map<String, String> saveImage(QaVO vo) throws Exception{
@@ -130,7 +130,7 @@ public class QaController {
 	      return map;
 	   }
 	
-	// ¿ø±Û Ãß°¡ ±â´É
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ï¿½
 	@RequestMapping(value = "qaAdd.inc",method=RequestMethod.POST)
 	public ModelAndView qa_write(QaVO qvo,String nowPage) throws Exception{
 		
@@ -165,18 +165,16 @@ public class QaController {
 		return mv;
 	}
 	
-	// º¸±â È­¸é ÀüÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½È¯
 	@RequestMapping("/qaView.inc")
 	public ModelAndView qa_view(String qabnowPage,String qb_idx,String qpwd)throws Exception {
-		
-		System.out.println(qabnowPage);
 		
 		if(qabnowPage == null)
 			this.nowPage = 1;
 		
 		ModelAndView mv = new ModelAndView();
 		
-		// ÇÑ¹øÀÌ¶óµµ ÀÐ±â¸¦ ÇÑ °Ô½Ã¹°
+		// ï¿½Ñ¹ï¿½ï¿½Ì¶ï¿½ ï¿½Ð±â¸¦ ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½
 		Object qobj = session.getAttribute("q_read_list");
 		List<QaVO> qar_list = null;
 		if(qobj != null) {
@@ -192,14 +190,14 @@ public class QaController {
 			boolean chk = false;
 			for(QaVO qavo: qar_list) {
 				if(qvo.getB_idx().equals(qavo.getB_idx())) {
-					// ÇÑ¹ø ÀÐ±â¸¦ ¼öÇàÇÑ °Ô½Ã¹°
+					// ï¿½Ñ¹ï¿½ ï¿½Ð±â¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½
 					chk = true;
 					break;
 				}
 			}
 			
 		if(!chk) {
-			// ÇÑ¹øµµ ÀÐ±â¸¦ ÇÏÁö ¾ÊÀº °æ¿ì, hit Áõ°¡
+			// ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½Ð±â¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, hit ï¿½ï¿½ï¿½ï¿½
 			q_dao.qa_hit(qb_idx);
 			
 			String h = qvo.getHit();
@@ -220,12 +218,10 @@ public class QaController {
 		return mv;
 	}
 	
-	// ¼öÁ¤ È­¸é ÀüÈ¯
+	// ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ ï¿½ï¿½È¯
 	@RequestMapping("/qaEditgo.inc")
 	public ModelAndView qaedit(String b_idx, String qnowPage,String pwd) {
 
-		System.out.println(qnowPage);
-		
 		QaVO qvo = q_dao.qaview(b_idx,pwd);
 
 		ModelAndView mv = new ModelAndView();
@@ -237,11 +233,11 @@ public class QaController {
 		return mv;
 	}
 	
-	// ¿ø±Û ¼öÁ¤ ¿Ï·á
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½
 	@RequestMapping(value = "/qaEditok.inc", method = RequestMethod.POST)
 	public ModelAndView qaeditok(QaVO vo) throws Exception{
 	
-		// ÆÄÀÏ Ã³¸®½Ã ¿¹¿Ü Ã³¸® °¡´ÉÇÏ¿© µÚ¿¡ throws ExceptionÀ» »ç¿ë ¸¸¾à try catch¸¦ »ç¿ëÇÏ¸é ÇÊ¿ä°¡ ¾ø´Ù.
+		// ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½Ú¿ï¿½ throws Exceptionï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ try catchï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ê¿ä°¡ ï¿½ï¿½ï¿½ï¿½.
 		ModelAndView mv = new ModelAndView();
 	
 		MultipartFile mf = vo.getUpload();
@@ -269,7 +265,7 @@ public class QaController {
 		return mv;
 	}
 	
-	//¿ø±Û »èÁ¦
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value = "qaDel.inc",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Boolean> del(String b_idx,String pwd){

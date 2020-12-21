@@ -26,5 +26,19 @@
 		select * from user_t WHERE id = #{id} AND pw = #{pw}
 	</select>
 	
-
+	<!-- 회원 수정 페이지 이동 -->
+	<select id="user_info" parameterType="String" resultType="com.data.vo.UserVO">
+		select * from user_t WHERE pw = #{pw} and id = #{id}
+	</select>
+	
+	<!-- 회원 수정 -->
+	<update id="user_edit" parameterType="com.data.vo.UserVO" >
+		UPDATE user_t SET pw = #{pwd} WHERE id = #{id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<update id="user_del" parameterType="com.data.vo.UserVO">
+		UPDATE user_t SET status = 1 WHERE pw = #{pw} and id = #{id}
+	</update>
+	
 </mapper>
